@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ng-template [appAuthControl]="isLoggedIn">
+  <div class="h-screen grid grid-cols-12 px-32 mt-24 gap-3">
+    <div class="col-span-4">
+        <app-sidebar [subjectInfo]="subject_list" [isLoggedIn]="isLoggedIn" (toggleEvent)="handleAuth()" (toggleNameValueEvent)="getSubjectInfo($event)"></app-sidebar>
+    </div>
+    <div class="col-span-8">
+        <app-content [subjectInfo]="subject_list" [courseObject]="courseObject"></app-content>
+    </div>
+      
+      
+  </div>
+
+  </ng-template>
+  <ng-template [appAuthControl]="!isLoggedIn">
+    <div class="h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500 flex flex-col justify-center items-center">
+        <h1 class="text-white text-2xl font-bold">Welcome to Angular Homework!</h1>
+        <h1 class="text-white text-2xl font-bold">Please log in to see the content inside.</h1>
+        <button (click)="handleAuth()" type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-2 ">login</button>
+    </div>
+  </ng-template>
+  
+
+</body>
+
+</html>

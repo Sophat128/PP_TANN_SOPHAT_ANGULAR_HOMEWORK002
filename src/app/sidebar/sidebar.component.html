@@ -1,0 +1,18 @@
+<div>
+    <div class=" p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        My favorite subject</h5>
+<div *ngFor="let subject of subjectInfo | sort" >
+    
+    <button
+    (click)="emitSubjectName(subject)"
+    
+    class="w-full mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <img src="../../assets/images/{{subject.thumbnail}}" alt="" width="50" class="pr-4">
+      
+      {{subject.subjectName}}
+    </button>
+</div>
+    </div>
+    <button (click)="emitValue()" class="p-2 bg-red-500 rounded-lg mt-3 text-white">Logout</button>
+  </div>
